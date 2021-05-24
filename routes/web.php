@@ -28,3 +28,10 @@ Route::get("/kenalan/{nama}/{npm}", function($nama, $npm){
     $data = ['nama' => $nama, 'npm' => $npm];
     return view("hallo", $data);
 });
+
+
+//Route ke halaman fakultas
+Route::get("/fakultas", function(){
+    $data = ["fakultas" => ["Fasilkom Rekayasa", "Fak. Ekonomi dan Bisnis"]];
+    return view("fakultas.index", $data);
+});
