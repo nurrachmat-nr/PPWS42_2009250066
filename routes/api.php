@@ -15,8 +15,10 @@ use App\Http\Controllers\MahasiswaApiController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource("mahasiswa", MahasiswaApiController::class);
+Route::middleware("auth:sanctum")->group(function(){
+    Route::apiResource("mahasiswa", MahasiswaApiController::class);
+});

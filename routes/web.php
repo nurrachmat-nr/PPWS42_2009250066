@@ -35,3 +35,6 @@ Route::get("/fakultas", function(){
     $data = ["fakultas" => ["Fasilkom Rekayasa", "Fak. Ekonomi dan Bisnis"]];
     return view("fakultas.index", $data);
 });
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
